@@ -1,0 +1,11 @@
+# Ignore everything
+*
+
+# But NOT these files (whitelist them)
+!.gitignore
+.zshrc
+.bashrc
+.tmux.conf
+.config/nvim
+.config/alacritty
+
