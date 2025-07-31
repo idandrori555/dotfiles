@@ -7,7 +7,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/ThemesA
 ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
@@ -36,7 +36,6 @@ ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
-
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
 
@@ -60,7 +59,7 @@ ZSH_THEME="robbyrussell"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="dd/mm/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -100,14 +99,47 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
+alias cls="clear"
+alias zshconfig="mate ~/.zshrc"
+alias mem="fastfetch | grep Mem"
+alias op="ss -tuln"
+alias files="nautilus"
+alias office="libreoffice"
+alias q="exit"
+alias vim="nvim"
+alias c="clear"
+
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Auto-start tmux if not already inside tmux
-if command -v tmux &> /dev/null; then
-  if [ -z "$TMUX" ]; then
-    tmux
-  fi
+# vim mode
+bindkey -v
+
+
+# Auto-start tmux if not already inside one
+if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+  tmux attach-session -t default || tmux new-session -s default
 fi
 
+# Exports
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
+export ANDROID_SDK_ROOT=/opt/android-sdk
+export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+export PATH=$PATH:/home/idan/android-sdk/cmdline-tools/latest/bin
 
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+
+
+# bun completions
+[ -s "/home/idan/.bun/_bun" ] && source "/home/idan/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+export NVIM="$HOME/.config/nvim"
