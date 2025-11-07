@@ -111,6 +111,7 @@ alias vi="nvim"
 alias c="clear"
 alias run="clang++ *.cpp -o main && ./main"
 alias wgcc="i686-w64-mingw32-gcc"
+alias wg++="i686-w64-mingw32-g++"
 alias lg="lazygit"
 alias lzd="lazydocker"
 alias xcopy="xclip -selection clipboard"
@@ -120,7 +121,6 @@ alias xcopy="xclip -selection clipboard"
 
 # vim mode
 bindkey -v
-
 
 # Auto-start tmux if not already inside one
 if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
@@ -133,6 +133,8 @@ fi
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+export EDITOR=nvim
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
