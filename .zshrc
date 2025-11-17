@@ -115,6 +115,7 @@ alias wg++="i686-w64-mingw32-g++"
 alias lg="lazygit"
 alias lzd="lazydocker"
 alias xcopy="xclip -selection clipboard"
+alias yy="yazi"
 
 
 # alias ohmyzsh="mate ~/.oh-my-zsh"
