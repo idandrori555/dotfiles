@@ -143,3 +143,5 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export NVIM="$HOME/.config/nvim"
 . "/home/idan/.deno/env"
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
