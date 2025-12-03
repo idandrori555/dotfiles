@@ -117,8 +117,30 @@ alias lzd="lazydocker"
 alias xcopy="xclip -selection clipboard"
 alias yy="yazi"
 
+# Hexa funcs
+dh() {
+  if [ $# -gt 0 ]; then
+    for num in "$@"; do
+      printf "0x%X\n" "$num"
+    done
+  else
+    while read -r num; do
+      printf "0x%X\n" "$num"
+    done
+  fi
+}
 
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+hd() {
+  if [ $# -gt 0 ]; then
+    for num in "$@"; do
+      printf "%d\n" "$num"
+    done
+  else
+    while read -r num; do
+      printf "%d\n" "$num"
+    done
+  fi
+}
 
 # vim mode
 bindkey -v
@@ -141,7 +163,8 @@ export EDITOR=nvim
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 export NVIM="$HOME/.config/nvim"
-. "/home/idan/.deno/env"
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export PATH="$HOME/.local/bin:$PATH"
