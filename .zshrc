@@ -110,15 +110,18 @@ alias vim="nvim"
 alias vi="nvim"
 alias c="clear"
 alias run="clang++ *.cpp -o main && ./main"
+alias drun="clang++ *.cpp -g -o main && ./main"
 alias wgcc="i686-w64-mingw32-gcc"
 alias wg++="i686-w64-mingw32-g++"
 alias lg="lazygit"
 alias lzd="lazydocker"
 alias xcopy="xclip -selection clipboard"
 alias yy="yazi"
+alias dasm="ndisasm"
+alias d16="ndisasm -b 16"
 
 # Hexa funcs
-dh() {
+dtoh() {
   if [ $# -gt 0 ]; then
     for num in "$@"; do
       printf "0x%X\n" "$num"
@@ -130,7 +133,7 @@ dh() {
   fi
 }
 
-hd() {
+htod() {
   if [ $# -gt 0 ]; then
     for num in "$@"; do
       printf "%d\n" "$num"
@@ -138,6 +141,67 @@ hd() {
   else
     while read -r num; do
       printf "%d\n" "$num"
+    done
+  fi
+}
+
+# binary functions
+# decimal to binary
+dtob() {
+  if [ $# -gt 0 ]; then
+    for num in "$@"; do
+      echo "obase=2;$num" | bc
+    done
+  else
+    while read -r num; do
+      [ -n "$num" ] && echo "obase=2;$num" | bc
+    done
+  fi
+}
+
+# hex to binary
+# hex (0x or not) to binary
+htob() {
+  if [ $# -gt 0 ]; then
+    for num in "$@"; do
+      # remove 0x or 0X prefix if present
+      num="${num#0x}"
+      num="${num#0X}"
+      echo "obase=2;ibase=16;$num" | bc
+    done
+  else
+    while read -r num; do
+      [ -n "$num" ] && {
+        num="${num#0x}"
+        num="${num#0X}"
+        echo "obase=2;ibase=16;$num" | bc
+      }
+    done
+  fi
+}
+
+# binary to decimal
+btod() {
+  if [ $# -gt 0 ]; then
+    for num in "$@"; do
+      printf "%d\n" "$((2#$num))"
+    done
+  else
+    while read -r num; do
+      [ -n "$num" ] && printf "%d\n" "$((2#$num))"
+    done
+  fi
+}
+
+# binary to hex
+btoh() {
+  if [ $# -gt 0 ]; then
+    for num in "$@"; do
+      printf "0x%X\n" "$((2#$num))"
+    done
+  else
+    while read -r num; do
+      [ -n "$num" ] && printf "0x%X\n" "$((2#$num))"
     done
   fi
 }
@@ -147,7 +211,7 @@ bindkey -v
 
 # Auto-start tmux if not already inside one
 if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-  tmux attach-session -t default || tmux new-session -s default
+  tmux attach-session -t 0 || tmux new-session -s 0
 fi
 
 # bun completions
