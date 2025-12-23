@@ -77,6 +77,7 @@ alias lzd="lazydocker"
 # Disassemblers
 alias dasm="ndisasm"
 alias d16="ndisasm -b 16"
+alias dump="objdump -S -Mintel"
 
 
 
