@@ -45,6 +45,8 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Aliases
+
+# General
 alias cls="clear"
 alias zshconfig="nvim ~/.zshrc"
 alias mem="fastfetch | grep Mem"
@@ -55,16 +57,28 @@ alias q="exit"
 alias vim="nvim"
 alias vi="nvim"
 alias c="clear"
-alias run="clang++ *.cpp -o main && ./main"
-alias drun="clang++ *.cpp -g -o main && ./main"
-alias wgcc="i686-w64-mingw32-gcc"
-alias wg++="i686-w64-mingw32-g++"
-alias lg="lazygit"
-alias lzd="lazydocker"
 alias xcopy="xclip -selection clipboard"
 alias yy="yazi"
+
+# Compile C and C++
+alias run="clang *.c -o main && ./main"
+alias run++="clang++ *.cpp -o main && ./main"
+alias drun="clang *.c -g -o main && ./main"
+alias drun++="clang++ *.cpp -g -o main && ./main"
+
+# Cross compilers
+alias wgcc="i686-w64-mingw32-gcc"
+alias wg++="i686-w64-mingw32-g++"
+
+# Lazy
+alias lg="lazygit"
+alias lzd="lazydocker"
+
+# Disassemblers
 alias dasm="ndisasm"
 alias d16="ndisasm -b 16"
+
+
 
 # Hexadecimal functions
 dtoh() {
