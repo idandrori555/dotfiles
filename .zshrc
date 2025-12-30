@@ -61,10 +61,10 @@ alias xcopy="xclip -selection clipboard"
 alias yy="yazi"
 
 # Compile C and C++
-alias run="clang *.c -o main && ./main"
-alias run++="clang++ *.cpp -o main && ./main"
-alias drun="clang *.c -g -o main && ./main"
-alias drun++="clang++ *.cpp -g -o main && ./main"
+alias run="clang *.c -Wall -o main && ./main"
+alias run++="clang++ *.cpp -Wall -o main && ./main"
+alias drun="clang *.c -g -Wall -o main && ./main"
+alias drun++="clang++ *.cpp -g -Wall -o main && ./main"
 
 # Cross compilers
 alias wgcc="i686-w64-mingw32-gcc"
