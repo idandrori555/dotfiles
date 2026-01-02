@@ -82,6 +82,10 @@ alias dump="objdump -S -Mintel"
 # Better gdb for debug
 alias gdb="cgdb"
 
+# More GIT aliases
+# Open the remote URL in the browser (replace with browser of your choice)
+# ORG = Open Git Remote
+alias ogr="zen-browser $(git remote get-url origin)"
 
 # Hexadecimal functions
 dtoh() {
