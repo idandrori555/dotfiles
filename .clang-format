@@ -5,6 +5,9 @@ AllowShortFunctionsOnASingleLine: None
 AllowShortIfStatementsOnASingleLine: false
 AllowShortLoopsOnASingleLine: false
 AllowShortCaseLabelsOnASingleLine: false
-
+# Change this to None to ensure the brace always drops
+AllowShortLambdasOnASingleLine: None
+# This ensures the brace specifically drops for lambdas
+BraceWrapping:
+  BeforeLambdaBody: true
 ColumnLimit: 0
-

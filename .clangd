@@ -1,0 +1,8 @@
+CompileFlags:
+  Add: [-std=c++23]
+  # Tell clangd to ask your compiler where the headers are
+  QueryDriver: ["/usr/bin/g++", "/usr/bin/clang++"] 
+
+InlayHints:
+  Enabled: true
+  DeducedTypes: true
