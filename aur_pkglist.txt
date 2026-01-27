@@ -1,0 +1,7 @@
+google-chrome
+lunar-client
+visual-studio-code-bin
+yay
+yay-debug
+zen-browser-bin
+zoom
