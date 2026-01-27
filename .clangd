@@ -1,8 +1,20 @@
+# C++ Specific Settings
+---
+If:
+  Language: cpp
 CompileFlags:
-  Add: [-std=c++23]
-  # Tell clangd to ask your compiler where the headers are
+  Add: [-std=c++23, -Wall]
   QueryDriver: ["/usr/bin/g++", "/usr/bin/clang++"] 
-
 InlayHints:
   Enabled: true
   DeducedTypes: true
+
+# C Specific Settings
+---
+If:
+  Language: c
+CompileFlags:
+  Add: [-std=c11, -Wall]
+  QueryDriver: ["/usr/bin/gcc", "/usr/bin/clang"]
+InlayHints:
+  Enabled: true
