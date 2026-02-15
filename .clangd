@@ -1,20 +1,20 @@
-# C++ Specific Settings
 ---
 If:
-  Language: cpp
+  PathMatch: .*\.(cpp|cc|cxx|hpp|hxx|h)$
 CompileFlags:
   Add: [-std=c++23, -Wall]
-  QueryDriver: ["/usr/bin/g++", "/usr/bin/clang++"] 
+  QueryDriver: ["/usr/bin/g++", "/usr/bin/clang++"]
 InlayHints:
+  Designators: true
   Enabled: true
+  ParameterNames: true
   DeducedTypes: true
-
-# C Specific Settings
 ---
 If:
-  Language: c
+  PathMatch: .*\.(c|h)$
 CompileFlags:
-  Add: [-std=c11, -Wall]
+  Add: [-std=c23, -Wall]
   QueryDriver: ["/usr/bin/gcc", "/usr/bin/clang"]
 InlayHints:
   Enabled: true
+  Designators: true

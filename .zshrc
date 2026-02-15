@@ -205,3 +205,6 @@ export EDITOR=nvim
 
 # opencode
 export PATH=/home/idan/.opencode/bin:$PATH
+
+# Disable NVIDIA optimizations
+__GL_THREADED_OPTIMIZATIONS=0
