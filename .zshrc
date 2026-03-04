@@ -182,8 +182,45 @@ sandbox() {
     nvim main.cpp
 }
 
-# vim mode
-bindkey -v
+# Minecraft Server Hosting
+mcserve() {
+    if [ -z "$1" ]; then
+        echo "❌ Error: Version is required!"
+        echo "Usage:  mcserve <VERSION> [TYPE] [MEMORY] [PORT]"
+        echo "Example: mcserve 1.21.1 PAPER 4G 25565"
+        return 1
+    fi
+
+    local VERSION=$1
+    local TYPE=${2:-"PAPER"}
+    local MEMORY=${3:-"1G"}
+    local PORT=${4:-"25565"}
+
+    local DATA_DIR="$HOME/mc-servers/$VERSION"
+    local NAME="mc-${TYPE:l}-${VERSION//./_}"
+
+    if [ ! -d "$DATA_DIR" ]; then
+        echo "📂 Creating data directory: $DATA_DIR"
+        mkdir -p "$DATA_DIR"
+    fi
+
+    echo "🚀 Launching Minecraft $TYPE (v$VERSION)..."
+    echo "📍 Folder: $DATA_DIR"
+    echo "⚡ RAM: $MEMORY | 🔌 Port: $PORT"
+
+    docker run -d -it \
+      --name "$NAME" \
+      -p "$PORT":25565 \
+      -e EULA=TRUE \
+      -e VERSION="$VERSION" \
+      -e TYPE="$TYPE" \
+      -e MEMORY="$MEMORY" \
+      -v "$DATA_DIR":/data \
+      itzg/minecraft-server
+
+    echo "✅ Container '$NAME' is running."
+    echo "📜 View logs: docker logs -f $NAME"
+}
 
 # Auto-start tmux if not already inside one
 if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
