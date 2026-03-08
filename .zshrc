@@ -215,6 +215,8 @@ mcserve() {
       -e VERSION="$VERSION" \
       -e TYPE="$TYPE" \
       -e MEMORY="$MEMORY" \
+      -e ENABLE_AUTOPAUSE=TRUE \
+      -e AUTOPAUSE_TIMEOUT_EST=600 \
       -v "$DATA_DIR":/data \
       itzg/minecraft-server
 
