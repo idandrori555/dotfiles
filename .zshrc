@@ -215,6 +215,7 @@ mcserve() {
       -e VERSION="$VERSION" \
       -e TYPE="$TYPE" \
       -e MEMORY="$MEMORY" \
+      -e TZ=Asia/Jerusalem \
       -v "$DATA_DIR":/data \
       itzg/minecraft-server
 
