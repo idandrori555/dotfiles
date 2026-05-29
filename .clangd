@@ -11,7 +11,7 @@ InlayHints:
   DeducedTypes: true
 ---
 If:
-  PathMatch: .*\.(c|h)$
+  PathMatch: .*\.(c)$
 CompileFlags:
   Add: [-std=c23, -Wall]
   QueryDriver: ["/usr/bin/gcc", "/usr/bin/clang"]
