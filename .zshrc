@@ -169,16 +169,12 @@ btoh() {
 }
 
 sandbox() {
-    # 1. Create a unique folder name using the time
     local folder="test_$(date +%H%M%S)"
 
-    # 2. Make the directory and enter it
     mkdir -p "$HOME/code/cpp/sandboxes/$folder" && cd "$HOME/code/cpp/sandboxes/$folder"
 
-    # 3. Run your template tool
     boil cpp23
 
-    # 4. Open nvim directly
     nvim main.cpp
 }
 
