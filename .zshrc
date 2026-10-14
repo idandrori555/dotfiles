@@ -47,6 +47,7 @@ source $ZSH/oh-my-zsh.sh
 # Aliases
 
 # General
+alias md="glow"
 alias cls="clear"
 alias zshconfig="nvim ~/.zshrc"
 alias mem="fastfetch | grep Mem"
@@ -81,6 +82,18 @@ alias dump="objdump -S -Mintel"
 
 # Better gdb for debug
 alias gdb="cgdb"
+
+# Soundbar control for FL
+alias soundbar-on="systemctl --user start soundbar-keepalive.service"
+alias soundbar-off="systemctl --user stop soundbar-keepalive.service"
+
+bindkey -v
+
+# Ensure beam cursor when starting a new line
+function zle-line-init {
+  echo -ne '\e[6 q'
+}
+zle -N zle-line-init
 
 # Open the remote URL in the browser (replace with browser of your choice)
 # ORG = Open Git Remote
@@ -240,5 +253,5 @@ export EDITOR=nvim
 # opencode
 export PATH=/home/idan/.opencode/bin:$PATH
 
-# Disable NVIDIA optimizations
-__GL_THREADED_OPTIMIZATIONS=0
+# Added by Antigravity CLI installer
+export PATH="/home/idan/.local/bin:$PATH"
